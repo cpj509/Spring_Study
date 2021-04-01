@@ -1,2 +1,2 @@
 # Spring_Study
-스프링 학습용.
+Spring 공부 저장소.
