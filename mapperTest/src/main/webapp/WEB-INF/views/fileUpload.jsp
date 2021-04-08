@@ -7,12 +7,9 @@
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/fileUpload" method="post" enctype="multipart/form-data">
-	<input type="file" />
-	<input type="file" />
-	<input type="file" />
-	<input type="file" />
-	<input type="file" />
+<form action="fileUploadPost" method="post" enctype="multipart/form-data">
+	<input type="file" /><br>
+	<input type="file" /><br>
 	<input type="submit"/>
 </form>
 </body>

@@ -7,6 +7,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -20,14 +21,19 @@ import jmp.spring.vo.sampleVO;
 public class MainController {
 
 	@GetMapping("fileUpload")
-	public String fileUpload() {
-		return "fileUpload";
+	public void fileUpload() {
+		System.out.println("==========get fileUpload");
 	}
 
-//	@GetMapping("fileUpload")
-//	public String fileUpload(ArrayList<MultipartFile> files) {
-//		return "fileUpload";
-//	}
+	@PostMapping("fileUploadPost")
+	public void fileUploadPost(ArrayList<MultipartFile> files) {
+		System.out.println("==========post" + files);
+		
+		files.forEach(file -> {
+			System.out.println("name : " + file.getOriginalFilename());
+			System.out.println("size : " + file.getSize());
+		});
+	}
 	
 	@GetMapping("getJson")
 	public @ResponseBody sampleVO getJson(sampleVO vo) {
