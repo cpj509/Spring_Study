@@ -17,11 +17,16 @@
 		border-collapse: collapse;
 	}
 </style>
+<script type="text/javascript">
+	if(!${empty resMsg }){
+		alert('${resMsg }');
+	}
+</script>
 </head>
 <body>
 	<h1>게시판</h1>
 	<table>
-		<tr style="background: #ccc">
+		<tr style="background: #ddd">
 			<th>bno</th>
 			<th>title</th>
 			<th>content</th>

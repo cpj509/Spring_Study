@@ -6,6 +6,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jmp.spring.service.BoardService;
 import jmp.spring.vo.BoardVO;
@@ -31,9 +32,13 @@ public class BoardController {
 	}
 	
 	@PostMapping("register")
-	public String registerPost(BoardVO vo) {
+	public String registerPost(BoardVO vo, RedirectAttributes rttr) {
 		log.info("=========vo : " + vo);
 		service.insertBoard(vo);
+		log.info("=========vo : " + vo);
+		
+		rttr.addFlashAttribute("resMsg", vo.getBno() + "번 게시물이 등록 되었습니다.");
+		
 		return "redirect:list";
 	}
 }
