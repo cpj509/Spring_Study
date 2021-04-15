@@ -15,4 +15,8 @@ public interface BoardMapper {
 	public List<BoardVO> getList();
 	
 	public int insertBoard(BoardVO vo);
+	
+	public BoardVO get(int bno);
+	
+	public int update(BoardVO vo);
 }

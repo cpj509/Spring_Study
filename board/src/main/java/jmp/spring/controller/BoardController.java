@@ -41,4 +41,13 @@ public class BoardController {
 		
 		return "redirect:list";
 	}
+	
+	@GetMapping({"get", "edit"})
+	public void get(BoardVO vo, Model model) {
+		log.info("========get");
+		
+		vo = service.get(vo.getBno());
+		
+		model.addAttribute("vo", vo);
+	}
 }
