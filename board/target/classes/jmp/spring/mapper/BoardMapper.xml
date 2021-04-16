@@ -29,4 +29,8 @@
 	 	set title = #{title}, content = #{content}, writer = #{writer}, updatedate = sysdate
 	 	where bno = #{bno} 
 	</update>
+	
+	<delete id="delete">
+		DELETE FROM tbl_board WHERE bno= #{bno}
+	</delete>
 </mapper>

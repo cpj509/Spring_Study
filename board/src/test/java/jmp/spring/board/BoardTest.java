@@ -38,10 +38,22 @@ public class BoardTest {
 	 */
 	
 	@Test
+	public void service5() {
+		service.delete(15);	//	custom value. need to fix.
+		log.info("delete finish.(service)");
+	}
+	
+	@Test
+	public void mapperTest7() {	//delete test(mapper)
+		mapper.delete(16);	//	custom value. need to fix.
+		log.info("delete finish.(mapper)");
+	}
+	
+	@Test
 	public void service4() {
 		BoardVO vo = new BoardVO();
 		
-		vo.setBno(21);
+		vo.setBno(21);	//	custom value. need to fix.
 		vo.setTitle("업데이트Title2");
 		vo.setContent("업데이트Content2");
 		vo.setWriter("업데이트Writer2");
@@ -55,7 +67,7 @@ public class BoardTest {
 	public void mapperTest6() {	//	update test
 		BoardVO vo = new BoardVO();
 		
-		vo.setBno(20);
+		vo.setBno(20);	//	custom value. need to fix.
 		vo.setTitle("업데이트Title");
 		vo.setContent("업데이트Content");
 		vo.setWriter("업데이트Writer");

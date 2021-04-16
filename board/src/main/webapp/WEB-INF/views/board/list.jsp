@@ -37,7 +37,7 @@
 		<c:forEach var="list" items="${list }">
 			<tr>
 				<td><c:out value="${list.getBno() }"></c:out></td>
-				<td><c:out value="${list.getTitle() }"></c:out></td>
+				<td><a href="get?bno=${list.getBno() }"><c:out value="${list.getTitle() }"></c:out></a></td>
 				<td><c:out value="${list.getContent() }"></c:out></td>
 				<td><c:out value="${list.getWriter() }"></c:out></td>
 				<td><c:out value="${list.getRegdate() }"></c:out></td>

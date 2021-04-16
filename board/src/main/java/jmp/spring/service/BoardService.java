@@ -12,4 +12,6 @@ public interface BoardService {
 	public BoardVO get(int bno);
 	
 	public int update(BoardVO vo);
+	
+	public int delete(int bno);
 }
