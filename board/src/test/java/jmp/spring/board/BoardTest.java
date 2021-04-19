@@ -15,6 +15,7 @@ import com.zaxxer.hikari.HikariDataSource;
 import jmp.spring.mapper.BoardMapper;
 import jmp.spring.service.BoardService;
 import jmp.spring.vo.BoardVO;
+import jmp.spring.vo.Criteria;
 import lombok.extern.log4j.Log4j;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -36,6 +37,16 @@ public class BoardTest {
 	 * 작성일 : 
 	 * 반환값 : 
 	 */
+	
+	@Test
+	public void getTotalTest_service() {
+		log.info(service.getTotal());
+	}
+	
+	@Test
+	public void getTotalTest_mapper() {
+		log.info(mapper.getTotal());
+	}
 	
 	@Test
 	public void service5() {
@@ -113,17 +124,21 @@ public class BoardTest {
 	}
 	
 	@Test
-	public void service() {	//	select test(service)
-		log.info(service.getList());
+	public void getListTest_service() {	//	select test(service)
+		Criteria cri = new Criteria();
+		cri.setPageNo(1);
+		log.info(service.getList(cri));
 	}
 	
 	@Test
-	public void mapperTest3() {	//	select * from tbl_board
-		log.info(mapper.getList());
+	public void getListTest_mapper() {
+		Criteria cri = new Criteria();
+		cri.setPageNo(2);
+		log.info(mapper.getList(cri));
 	}
 	
 	@Test
-	public void mapperTest2() {	//	get time test
+	public void gettime2Test() {	//	get time test
 		log.info("=======" + mapper.getTime2());
 	}
 	

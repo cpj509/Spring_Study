@@ -10,6 +10,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import jmp.spring.service.BoardService;
 import jmp.spring.vo.BoardVO;
+import jmp.spring.vo.Criteria;
+import jmp.spring.vo.PageNavi;
 import lombok.extern.log4j.Log4j;
 
 @Controller
@@ -55,14 +57,20 @@ public class BoardController {
 	}
 	
 	@GetMapping("list")
-	public void list(Model model) {
+	public String list(Criteria cri, Model model) {
+		
+		
 		log.info("list");
-		model.addAttribute("list", service.getList());
+		model.addAttribute("list", service.getList(cri));
+		model.addAttribute("pageNavi", new PageNavi(cri, service.getTotal()));
+		
+		return "board/list_b";
 	}
 	
 	@GetMapping("register")
-	public void register() {
+	public String register() {
 		log.info("register");
+		return "board/register_b";
 	}
 	
 	@PostMapping("register")
@@ -75,13 +83,37 @@ public class BoardController {
 		
 		return "redirect:list";
 	}
-	
+/*
 	@GetMapping({"get", "edit"})
-	public void get(BoardVO vo, Model model) {
+	public String get(BoardVO vo, Model model) {
 		log.info("========get, edit");
 		
 		vo = service.get(vo.getBno());
 		
 		model.addAttribute("vo", vo);
+		
+		return "board/get_b";
+	}
+*/
+	@GetMapping("get")
+	public String get(BoardVO vo, Model model) {
+		log.info("========get");
+		
+		vo = service.get(vo.getBno());
+		
+		model.addAttribute("vo", vo);
+		
+		return "board/get_b";
+	}
+
+	@GetMapping("edit")
+	public String edit(BoardVO vo, Model model) {
+		log.info("========edit");
+		
+		vo = service.get(vo.getBno());
+		
+		model.addAttribute("vo", vo);
+		
+		return "board/edit_b";
 	}
 }

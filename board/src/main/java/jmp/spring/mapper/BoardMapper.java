@@ -5,6 +5,7 @@ import java.util.List;
 import org.apache.ibatis.annotations.Select;
 
 import jmp.spring.vo.BoardVO;
+import jmp.spring.vo.Criteria;
 
 public interface BoardMapper {
 	@Select("select sysdate from dual")
@@ -12,7 +13,7 @@ public interface BoardMapper {
 	
 	public String getTime2();
 	
-	public List<BoardVO> getList();
+	public List<BoardVO> getList(Criteria cri);
 	
 	public int insertBoard(BoardVO vo);
 	
@@ -21,4 +22,6 @@ public interface BoardMapper {
 	public int update(BoardVO vo);
 	
 	public int delete(int bno);
+	
+	public int getTotal();
 }

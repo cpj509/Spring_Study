@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import jmp.spring.mapper.BoardMapper;
 import jmp.spring.vo.BoardVO;
+import jmp.spring.vo.Criteria;
 
 @Service
 public class BoardServiceImpl implements BoardService{
@@ -15,9 +16,9 @@ public class BoardServiceImpl implements BoardService{
 	BoardMapper mapper;
 	
 	@Override
-	public List<BoardVO> getList() {
+	public List<BoardVO> getList(Criteria cri) {
 		// TODO Auto-generated method stub
-		return mapper.getList();
+		return mapper.getList(cri);
 	}
 
 	@Override
@@ -42,5 +43,11 @@ public class BoardServiceImpl implements BoardService{
 	public int delete(int bno) {
 		// TODO Auto-generated method stub
 		return mapper.delete(bno);
+	}
+
+	@Override
+	public int getTotal() {
+		// TODO Auto-generated method stub
+		return mapper.getTotal();
 	}
 }
