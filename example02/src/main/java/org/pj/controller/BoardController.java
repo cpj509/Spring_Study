@@ -35,9 +35,9 @@ public class BoardController {
 		return "redirect:/board/list";	//redirect:를 사용하면 스프링 MVC가 내부적으로 response.sendredirect()를 처리해 줌.
 	}
 	
-	@GetMapping("/get")
+	@GetMapping({"/get", "/modify"})
 	public void get(@RequestParam("bno") long bno, Model model) {
-		log.info("get");
+		log.info("get or modify");
 		
 		model.addAttribute("board", service.get(bno));
 	}

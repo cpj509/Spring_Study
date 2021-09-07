@@ -58,8 +58,6 @@
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default"
 												data-dismiss="modal">Close</button>
-											<button type="button" class="btn btn-primary">Save
-												changes</button>
 										</div>
 									</div>
 									<!-- /.modal-content -->
@@ -83,8 +81,10 @@ $(document).ready(function(){
 	
 	checkModal(result);
 	
+	history.replaceState({}, null, null);	//뒤로가기 시 모달창을 계속 불러오는 문제를 해결하기 위한 history 객체 check.
+	
 	function checkModal(result){	//파라미터에 따라서 Modal 창을 띄움.
-		if(result === ''){
+		if(result === '' || history.state){
 			return;
 		}
 		
