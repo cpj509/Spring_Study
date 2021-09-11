@@ -4,10 +4,13 @@ import java.util.List;
 
 import org.apache.ibatis.annotations.Select;
 import org.pj.domain.BoardVO;
+import org.pj.domain.Criteria;
 
 public interface BoardMapper {
 	//@Select("select * from tbl_board where bno > 0")	Mapper 인터페이스. BoardMapper.xml을 사용하였기에 주석처리.
 	public List<BoardVO> getList();
+	
+	public List<BoardVO> getListWithPaging(Criteria cri);
 	
 	public void insert(BoardVO board);
 	
