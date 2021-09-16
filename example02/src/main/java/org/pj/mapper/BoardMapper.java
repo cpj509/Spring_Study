@@ -21,4 +21,6 @@ public interface BoardMapper {
 	public int delete(long bno);
 	
 	public int update(BoardVO board);
+	
+	public int getTotalCount(Criteria cri);	//검색에서 사용하기 위해 파라미터에 Criteria를 전달 받도록 설계.
 }

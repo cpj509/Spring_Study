@@ -19,6 +19,9 @@
       <div class="panel-heading">Board Modify Page</div>
       
       <form role="form" action="/board/modify" method="post">
+      
+      <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"></c:out>' />
+      <input type="hidden" name="amount" value='<c:out value="${cri.amount }"></c:out>' />
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -68,7 +71,12 @@ $(function(){
 			formObj.attr("action", "/board/remove");
 		}else if(operation === 'list'){	//list로 이동.
 			formObj.attr("action", "/board/list").attr("method", "get");
-			formObj.empty();
+			var pageNumTag = $("input[name='pageNum']").clone();
+			var amountTag = $("input[name='amount']").clone();
+		
+			formObj.empty();	//위에 필요한 부분인 pageNum과 amount를 복사해 두고 form 태그의 내용을 지움.
+			formObj.append(pageNumTag);
+			formObj.append(amountTag);
 		}
 		formObj.submit();
 	});
