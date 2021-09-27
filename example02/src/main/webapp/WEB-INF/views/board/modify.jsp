@@ -22,6 +22,8 @@
       
       <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum }"></c:out>' />
       <input type="hidden" name="amount" value='<c:out value="${cri.amount }"></c:out>' />
+	  <input type="hidden" name="keyword" value='<c:out value="${cri.keyword }"></c:out>' />
+	  <input type="hidden" name="type" value='<c:out value="${cri.type }"></c:out>' />	
       <!-- /.panel-heading -->
       <div class="panel-body">
 
@@ -73,10 +75,14 @@ $(function(){
 			formObj.attr("action", "/board/list").attr("method", "get");
 			var pageNumTag = $("input[name='pageNum']").clone();
 			var amountTag = $("input[name='amount']").clone();
+			var typeTag = $("input[name='type']").clone();
+			var keywordTag = $("input[name='keyword']").clone();
 		
 			formObj.empty();	//위에 필요한 부분인 pageNum과 amount를 복사해 두고 form 태그의 내용을 지움.
 			formObj.append(pageNumTag);
 			formObj.append(amountTag);
+			formObj.append(typeTag);
+			formObj.append(keywordTag);
 		}
 		formObj.submit();
 	});
